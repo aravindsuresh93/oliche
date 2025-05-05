@@ -7,7 +7,7 @@
 
 body {
   background-color: #fff;
-  color: #333;
+  color: #000000;
   line-height: 1.6;
 }
 
@@ -27,9 +27,9 @@ header {
 }
 
 h1 {
-  font-weight: 300;
-  font-size: 32px;
-  color: #333;
+  font-weight: 600;
+  font-size: 24px;
+  color: #000000;
   letter-spacing: 0.5px;
 }
 
@@ -98,7 +98,7 @@ h2 {
 label {
   display: block;
   margin-bottom: 8px;
-  font-weight: 500;
+  font-weight: 200;
   color: #555;
 }
 
@@ -164,19 +164,19 @@ input:focus {
   padding: 15px;
   border-radius: 6px;
   background-color: #f9f9f9;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.4s, box-shadow 0.4s;
   cursor: pointer;
 }
 
 .password-item:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 10px rgba(56, 76, 255, 0.1);
   background-color: #f5f5f5;
 }
 
 .password-name {
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 300;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
