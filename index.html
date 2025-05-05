@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oliche - Password Manager</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Oliche</h1>
+      <div class="header-actions">
+        <button id="editButton" class="icon-button">
+          <span class="material-icons">edit</span>
+        </button>
+        <button id="addButton" class="icon-button">
+          <span class="material-icons">add</span>
+        </button>
+      </div>
+    </header>
+    
+    <div id="addPasswordModal" class="modal">
+      <div class="modal-content">
+        <h2>Add New Password</h2>
+        <form id="passwordForm">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" required>
+          </div>
+          
+          <div class="form-actions">
+            <button type="button" id="cancelAdd" class="btn-secondary">Cancel</button>
+            <button type="submit" class="btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    
+    <!-- Edit Password Modal -->
+    <div id="editPasswordModal" class="edit-password-modal">
+      <div class="modal-content">
+        <h2>Edit Password</h2>
+        <form id="editPasswordForm">
+          <input type="hidden" id="editPasswordId">
+          <div class="form-group">
+            <label for="editName">Name</label>
+            <input type="text" id="editName" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="editPassword">Password</label>
+            <input type="text" id="editPassword" required>
+          </div>
+          
+          <div class="form-actions">
+            <button type="button" id="cancelEdit" class="btn-secondary">Cancel</button>
+            <button type="submit" class="btn-primary">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    
+    <div id="passwordsList" class="password-list-container"></div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html> 

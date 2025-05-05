@@ -1,0 +1,82 @@
+{
+  "name": "oliche",
+  "version": "1.0.0",
+  "description": "Secure password storage application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "nodemon --watch main.js --watch src --exec electron .",
+    "prepare-icons": "node build-resources/prepare-icons.js",
+    "prepare-dmg": "node build-resources/generate-dmg-background.js",
+    "prepare-all": "npm run prepare-icons && npm run prepare-dmg",
+    "pack": "npx electron-builder --dir",
+    "dist": "npx electron-builder",
+    "dist:mac": "npx electron-builder --mac",
+    "dist:win": "npx electron-builder --win",
+    "dist:linux": "npx electron-builder --linux",
+    "build-all": "npm run prepare-all && npm run dist",
+    "build": "node build.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "canvas": "^2.11.2",
+    "electron": "^28.0.0",
+    "electron-builder": "^24.6.4",
+    "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "electron-store": "^8.1.0"
+  },
+  "build": {
+    "appId": "com.oliche.app",
+    "productName": "Oliche",
+    "copyright": "Copyright © 2023",
+    "mac": {
+      "category": "public.app-category.utilities",
+      "icon": "build/icon.icns",
+      "darkModeSupport": true,
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        "nsis"
+      ]
+    },
+    "linux": {
+      "icon": "build/icon.png",
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Utility"
+    },
+    "dmg": {
+      "icon": "build/icon.icns",
+      "background": "build-resources/background.png",
+      "iconSize": 100,
+      "contents": [
+        {
+          "x": 380,
+          "y": 280,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 130,
+          "y": 280,
+          "type": "file"
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true
+    }
+  }
+} 
