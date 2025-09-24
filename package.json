@@ -6,15 +6,12 @@
   "scripts": {
     "start": "electron .",
     "dev": "nodemon --watch main.js --watch src --exec electron .",
-    "prepare-icons": "node build-resources/prepare-icons.js",
-    "prepare-dmg": "node build-resources/generate-dmg-background.js",
-    "prepare-all": "npm run prepare-icons && npm run prepare-dmg",
     "pack": "npx electron-builder --dir",
     "dist": "npx electron-builder",
     "dist:mac": "npx electron-builder --mac",
     "dist:win": "npx electron-builder --win",
     "dist:linux": "npx electron-builder --linux",
-    "build-all": "npm run prepare-all && npm run dist",
+    "package-mac": "electron-packager . Oliche --platform=darwin --arch=arm64 --out=release --overwrite --prune=true --ignore=dist --ignore=dmg-contents --ignore=release",
     "build": "node build.js"
   },
   "author": "",
@@ -23,6 +20,7 @@
     "canvas": "^2.11.2",
     "electron": "^28.0.0",
     "electron-builder": "^24.6.4",
+    "electron-packager": "^17.1.2",
     "nodemon": "^3.0.1"
   },
   "dependencies": {
@@ -34,7 +32,6 @@
     "copyright": "Copyright © 2023",
     "mac": {
       "category": "public.app-category.utilities",
-      "icon": "build/icon.icns",
       "darkModeSupport": true,
       "target": [
         "dmg",
@@ -42,13 +39,11 @@
       ]
     },
     "win": {
-      "icon": "build/icon.ico",
       "target": [
         "nsis"
       ]
     },
     "linux": {
-      "icon": "build/icon.png",
       "target": [
         "AppImage",
         "deb"
@@ -56,9 +51,6 @@
       "category": "Utility"
     },
     "dmg": {
-      "icon": "build/icon.icns",
-      "background": "build-resources/background.png",
-      "iconSize": 100,
       "contents": [
         {
           "x": 380,
@@ -79,4 +71,4 @@
       "createDesktopShortcut": true
     }
   }
-} 
+}
